@@ -16,6 +16,9 @@ class Tokenizer:
 
     def decode(self, indices):
         return ''.join([self.idx_to_char[i] for i in indices])
+    
+    """ The '' means join with nothing between them 
+        Result → "hello" """
 
 
 # Test it
