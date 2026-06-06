@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NoteAI — Intelligent Notes Simplifier</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="nav-logo" onclick="showPage('landing')">
+      <div class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span>NoteAI</span>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#features" onclick="smoothScroll('features')">Features</a></li>
+      <li><a href="#how-it-works" onclick="smoothScroll('how-it-works')">How It Works</a></li>
+      <li><a href="#testimonials" onclick="smoothScroll('testimonials')">Testimonials</a></li>
+      <li><a href="#faq" onclick="smoothScroll('faq')">FAQ</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="btn-ghost" onclick="showPage('auth')">Sign In</button>
+      <button class="btn-primary" onclick="showPage('auth')">Get Started</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════════ -->
+<div id="page-landing" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grid-lines"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        AI-Powered Note Intelligence Platform
+      </div>
+      <h1 class="hero-title">
+        Transform Notes Into
+        <span class="gradient-text">Intelligent Summaries</span>
+      </h1>
+      <p class="hero-sub">
+        Upload handwritten or digital notes and let AI convert them into structured,
+        concise, and easy-to-understand study material — powered by OCR, NLP & LLMs.
+      </p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-lg" onclick="showPage('auth')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Get Started Free
+        </button>
+        <button class="btn-outline btn-lg" onclick="showPage('dashboard')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><polygon points="5 3 19 12 5 21 5 3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          Try Demo
+        </button>
+      </div>
+
+      <!-- Flow Illustration -->
+      <div class="flow-diagram">
+        <div class="flow-step">
+          <div class="flow-icon">📝</div>
+          <span>Raw Notes</span>
+        </div>
+        <div class="flow-arrow">
+          <svg width="32" height="16" viewBox="0 0 32 16"><path d="M0 8h28M22 2l8 6-8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🔍</div>
+          <span>OCR Scan</span>
+        </div>
+        <div class="flow-arrow">
+          <svg width="32" height="16" viewBox="0 0 32 16"><path d="M0 8h28M22 2l8 6-8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-icon">🤖</div>
+          <span>AI Process</span>
+        </div>
+        <div class="flow-arrow">
+          <svg width="32" height="16" viewBox="0 0 32 16"><path d="M0 8h28M22 2l8 6-8 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="flow-step active">
+          <div class="flow-icon">✨</div>
+          <span>Smart Summary</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">5,000+</div>
+          <div class="stat-label">Notes Processed</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-number">85%</div>
+          <div class="stat-label">Summary Accuracy</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-number">30%</div>
+          <div class="stat-label">Faster Learning</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-card">
+          <div class="stat-number">12K+</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features-section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Core Features</div>
+        <h2 class="section-title">Everything You Need to Study Smarter</h2>
+        <p class="section-sub">A complete AI toolkit for transforming any kind of notes into actionable insights</p>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card feature-large">
+          <div class="feature-icon-wrap" style="--icon-color: #6366F1;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>OCR Text Extraction</h3>
+          <p>Advanced computer vision extracts text from handwritten notes, printed documents, and images with high accuracy across 50+ languages.</p>
+          <div class="feature-tags">
+            <span>Handwriting</span><span>Multi-language</span><span>Real-time</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap" style="--icon-color: #8B5CF6;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>AI Summarization</h3>
+          <p>LLM-powered summaries that capture key ideas and remove noise instantly.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap" style="--icon-color: #06B6D4;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>AI Chat Assistant</h3>
+          <p>Ask follow-up questions about your notes in a ChatGPT-style interface.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap" style="--icon-color: #10B981;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>NLP Analysis</h3>
+          <p>Extracts key concepts, difficulty levels, and reading time estimates.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap" style="--icon-color: #F59E0B;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Multi-Format Export</h3>
+          <p>Download summaries as PDF, DOCX, or share a link instantly.</p>
+        </div>
+
+        <div class="feature-card feature-large">
+          <div class="feature-icon-wrap" style="--icon-color: #EC4899;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/><circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/><polyline points="21 15 16 10 5 21" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>Camera Capture & Upload</h3>
+          <p>Take a photo of physical notes or upload PDF, DOCX, and image files. Our pipeline handles everything from preprocessing to structured output — no formatting needed.</p>
+          <div class="feature-tags">
+            <span>PDF</span><span>DOCX</span><span>JPG/PNG</span><span>Camera</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Process</div>
+        <h2 class="section-title">From Chaos to Clarity in 4 Steps</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3>Upload Your Notes</h3>
+          <p>Drag & drop images, PDFs, DOCX files, or use your camera to capture physical notes in real time.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3>OCR Extraction</h3>
+          <p>Computer vision reads and digitizes handwriting and printed text with high accuracy and language support.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3>AI Processing</h3>
+          <p>NLP and LLM models analyze structure, extract concepts, classify topics, and generate summaries.</p>
+        </div>
+        <div class="step-connector"></div>
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h3>Get Your Summary</h3>
+          <p>Receive structured notes with key points, keywords, difficulty level, and reading time — ready to export.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Testimonials</div>
+        <h2 class="section-title">Loved by Learners & Researchers</h2>
+      </div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"NoteAI transformed how I prepare for the CAT exam. I upload messy notes and get clean, organized summaries in seconds."</p>
+          <div class="testimonial-author">
+            <div class="avatar" style="--av: #6366F1;">AK</div>
+            <div>
+              <div class="author-name">Arjun Kumar</div>
+              <div class="author-role">CAT Aspirant, IIT Delhi</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card featured">
+          <div class="stars">★★★★★</div>
+          <p>"As a researcher, I scan hundreds of journal pages. NoteAI's OCR + AI summary pipeline saves me 3+ hours daily. Absolutely indispensable."</p>
+          <div class="testimonial-author">
+            <div class="avatar" style="--av: #8B5CF6;">SR</div>
+            <div>
+              <div class="author-name">Dr. Sana Rao</div>
+              <div class="author-role">Research Fellow, AIIMS</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The AI Chat feature is a game-changer. I ask questions directly about my uploaded notes — it's like having a personal tutor 24/7."</p>
+          <div class="testimonial-author">
+            <div class="avatar" style="--av: #06B6D4;">MP</div>
+            <div>
+              <div class="author-name">Meera Patel</div>
+              <div class="author-role">B.Tech Student, NIT Surat</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">FAQ</div>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            What file formats are supported?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-answer">NoteAI supports PDF, DOCX, JPG, PNG, WebP, HEIC, and camera captures. Handwritten or printed — we handle both.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            How accurate is the OCR?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-answer">Our OCR engine achieves ~92% accuracy on clear handwriting and ~98%+ on printed text. Accuracy improves with image quality.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            Is my data secure?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-answer">Yes. All files are encrypted in transit and at rest. We do not store your raw notes after processing unless you choose to save them.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            Can I use it for competitive exam prep?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-answer">Absolutely. NoteAI is designed for UPSC, CAT, GATE, JEE, and other exam aspirants. Topic classification and difficulty tagging are specifically built for structured study.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question">
+            Is there a free plan?
+            <span class="faq-arrow">▾</span>
+          </div>
+          <div class="faq-answer">Yes! The free plan allows 10 note uploads per month with basic summarization. Pro plan unlocks unlimited uploads, AI chat, and advanced exports.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-card">
+        <div class="cta-blob"></div>
+        <h2>Ready to Study Smarter?</h2>
+        <p>Join 12,000+ students and researchers already using NoteAI.</p>
+        <button class="btn-primary btn-lg" onclick="showPage('auth')">Start for Free — No Card Required</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <span>NoteAI</span>
+          </a>
+          <p>Transform unstructured notes into intelligent, structured study materials using AI.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="GitHub">GH</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Changelog</a></li>
+            <li><a href="#">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Use Cases</h4>
+          <ul>
+            <li><a href="#">Students</a></li>
+            <li><a href="#">Researchers</a></li>
+            <li><a href="#">Professionals</a></li>
+            <li><a href="#">Exam Prep</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 NoteAI. All rights reserved.</span>
+        <span>Built with ♥ for learners everywhere</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-landing -->
+
+
+<!-- ═══════════════════════════════════════════
+     AUTH PAGE
+═══════════════════════════════════════════ -->
+<div id="page-auth" class="page">
+  <div class="auth-layout">
+    <div class="auth-left">
+      <div class="auth-blob"></div>
+      <div class="auth-left-content">
+        <a href="#" class="nav-logo" onclick="showPage('landing')">
+          <div class="logo-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <span>NoteAI</span>
+        </a>
+        <h2>"Study smarter, not harder — let AI do the heavy lifting."</h2>
+        <div class="auth-feature-list">
+          <div class="auth-feat"><span>✓</span> OCR on handwritten & printed notes</div>
+          <div class="auth-feat"><span>✓</span> LLM-powered summaries in seconds</div>
+          <div class="auth-feat"><span>✓</span> AI Chat to ask questions about your notes</div>
+          <div class="auth-feat"><span>✓</span> Export as PDF, DOCX, or share links</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="auth-right">
+      <div class="auth-form-wrap">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
+          <button class="auth-tab" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="formLogin" class="auth-form">
+          <h2>Welcome back</h2>
+          <p class="auth-form-sub">Sign in to your NoteAI account</p>
+          <button class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Continue with Google
+          </button>
+          <div class="form-divider"><span>or</span></div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" placeholder="you@example.com" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" class="form-input" />
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <button class="btn-primary btn-full" onclick="showPage('dashboard'); showToast('Welcome back! 👋')">Sign In</button>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="formSignup" class="auth-form hidden">
+          <h2>Create account</h2>
+          <p class="auth-form-sub">Start your NoteAI journey today</p>
+          <button class="btn-google">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Continue with Google
+          </button>
+          <div class="form-divider"><span>or</span></div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="Arjun Kumar" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" placeholder="you@example.com" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Create a strong password" class="form-input" />
+          </div>
+          <button class="btn-primary btn-full" onclick="showPage('dashboard'); showToast('Account created! Welcome to NoteAI 🚀')">Create Account</button>
+          <p class="auth-terms">By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /page-auth -->
+
+
+<!-- ═══════════════════════════════════════════
+     DASHBOARD (App Shell)
+═══════════════════════════════════════════ -->
+<div id="page-dashboard" class="page app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span>NoteAI</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-link active" onclick="switchApp('overview', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="2"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="sidebar-link" onclick="switchApp('upload', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Upload Notes
+      </a>
+      <a href="#" class="sidebar-link" onclick="switchApp('summaries', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        My Summaries
+      </a>
+      <a href="#" class="sidebar-link" onclick="switchApp('chat', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        AI Chat
+        <span class="sidebar-badge">AI</span>
+      </a>
+      <a href="#" class="sidebar-link" onclick="switchApp('history', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        History
+      </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <a href="#" class="sidebar-link" onclick="switchApp('settings', this)">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="currentColor" stroke-width="2"/></path></svg>
+        Settings
+      </a>
+      <div class="sidebar-user">
+        <div class="avatar" style="--av: #6366F1;">AK</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Arjun Kumar</div>
+          <div class="sidebar-user-plan">Free Plan</div>
+        </div>
+        <button class="logout-btn" onclick="showPage('landing')" title="Logout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="app-main">
+    <div class="app-topbar">
+      <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="topbar-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input type="text" placeholder="Search notes, summaries…" />
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" onclick="toggleTheme()">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="topbar-notif">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="notif-dot"></span>
+        </div>
+        <div class="avatar sm" style="--av: #6366F1;">AK</div>
+      </div>
+    </div>
+
+    <!-- ── Dashboard Overview ── -->
+    <div id="app-overview" class="app-section active">
+      <div class="app-section-header">
+        <div>
+          <h1>Good morning, Arjun 👋</h1>
+          <p>Here's what's happening with your notes today.</p>
+        </div>
+        <button class="btn-primary" onclick="switchApp('upload', document.querySelector('[onclick*=upload]'))">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Upload Notes
+        </button>
+      </div>
+
+      <div class="dashboard-cards">
+        <div class="dash-card">
+          <div class="dash-card-icon" style="--c: #6366F1;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <div class="dash-card-body">
+            <div class="dash-card-value">24</div>
+            <div class="dash-card-label">Notes Uploaded</div>
+          </div>
+          <div class="dash-card-trend up">+3 today</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-icon" style="--c: #8B5CF6;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="dash-card-body">
+            <div class="dash-card-value">18</div>
+            <div class="dash-card-label">Summaries Generated</div>
+          </div>
+          <div class="dash-card-trend up">+2 today</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-icon" style="--c: #06B6D4;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="dash-card-body">
+            <div class="dash-card-value">4.2h</div>
+            <div class="dash-card-label">Time Saved</div>
+          </div>
+          <div class="dash-card-trend up">This week</div>
+        </div>
+        <div class="dash-card">
+          <div class="dash-card-icon" style="--c: #10B981;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="dash-card-body">
+            <div class="dash-card-value">91%</div>
+            <div class="dash-card-label">Accuracy Score</div>
+          </div>
+          <div class="dash-card-trend up">Above avg</div>
+        </div>
+      </div>
+
+      <!-- Analytics Chart (CSS-only bar chart) -->
+      <div class="dash-grid-2">
+        <div class="card">
+          <div class="card-header">
+            <h3>Weekly Activity</h3>
+            <span class="card-badge">Last 7 days</span>
+          </div>
+          <div class="bar-chart">
+            <div class="bar-group"><div class="bar" style="--h: 40%;"></div><span>Mon</span></div>
+            <div class="bar-group"><div class="bar" style="--h: 65%;"></div><span>Tue</span></div>
+            <div class="bar-group"><div class="bar" style="--h: 55%;"></div><span>Wed</span></div>
+            <div class="bar-group"><div class="bar active" style="--h: 90%;"></div><span>Thu</span></div>
+            <div class="bar-group"><div class="bar" style="--h: 75%;"></div><span>Fri</span></div>
+            <div class="bar-group"><div class="bar" style="--h: 30%;"></div><span>Sat</span></div>
+            <div class="bar-group"><div class="bar" style="--h: 20%;"></div><span>Sun</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>Recent Activity</h3>
+            <span class="card-badge">Live</span>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">📄</div>
+              <div class="activity-body">
+                <div class="activity-title">Physics Chapter 7 Notes</div>
+                <div class="activity-meta">Summarized · 12 min ago</div>
+              </div>
+              <div class="activity-status success">Done</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">📷</div>
+              <div class="activity-body">
+                <div class="activity-title">Handwritten Chemistry Notes</div>
+                <div class="activity-meta">OCR + Summary · 1h ago</div>
+              </div>
+              <div class="activity-status success">Done</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">📝</div>
+              <div class="activity-body">
+                <div class="activity-title">CAT Quant Practice Sheet</div>
+                <div class="activity-meta">Processing · just now</div>
+              </div>
+              <div class="activity-status processing">AI Processing</div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">📑</div>
+              <div class="activity-body">
+                <div class="activity-title">History NCERT Notes</div>
+                <div class="activity-meta">Exported PDF · 3h ago</div>
+              </div>
+              <div class="activity-status">Exported</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /app-overview -->
+
+
+    <!-- ── Upload Notes ── -->
+    <div id="app-upload" class="app-section">
+      <div class="app-section-header">
+        <div>
+          <h1>Upload Notes</h1>
+          <p>Upload your handwritten or digital notes to get started.</p>
+        </div>
+      </div>
+
+      <!-- Drop Zone -->
+      <div class="dropzone" id="dropzone" onclick="triggerFileUpload()" ondragover="handleDragOver(event)" ondrop="handleDrop(event)" ondragleave="handleDragLeave(event)">
+        <div class="dropzone-inner">
+          <div class="dropzone-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><polyline points="17 8 12 3 7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Drag & Drop your notes here</h3>
+          <p>or click to browse files</p>
+          <input type="file" id="fileInput" style="display:none" accept=".pdf,.docx,.jpg,.jpeg,.png,.webp" onchange="handleFileSelect(event)" />
+          <div class="upload-format-list">
+            <span class="format-pill">PDF</span>
+            <span class="format-pill">DOCX</span>
+            <span class="format-pill">JPG</span>
+            <span class="format-pill">PNG</span>
+            <span class="format-pill">WEBP</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="upload-options">
+        <button class="upload-opt-btn" onclick="showToast('Camera capture opened 📷')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="4" stroke="currentColor" stroke-width="2"/></svg>
+          Camera Capture
+        </button>
+        <button class="upload-opt-btn" onclick="showToast('Google Drive import coming soon!')">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22 19H2M12 3l9 16H3L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          Import from Drive
+        </button>
+        <button class="upload-opt-btn" onclick="simulateProcessing()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Try Sample Note
+        </button>
+      </div>
+
+      <!-- Processing Screen (hidden by default) -->
+      <div class="processing-screen" id="processingScreen" style="display:none;">
+        <div class="processing-card">
+          <h3>AI Processing Your Notes</h3>
+          <p>Sit tight — this usually takes 10–30 seconds</p>
+          <div class="processing-steps">
+            <div class="proc-step" id="proc1">
+              <div class="proc-spinner"></div>
+              <div class="proc-info">
+                <span class="proc-label">OCR Extraction</span>
+                <span class="proc-desc">Reading and digitizing your text…</span>
+              </div>
+              <div class="proc-status" id="proc1status">Processing</div>
+            </div>
+            <div class="proc-step pending" id="proc2">
+              <div class="proc-spinner"></div>
+              <div class="proc-info">
+                <span class="proc-label">NLP Analysis</span>
+                <span class="proc-desc">Identifying key concepts and structure…</span>
+              </div>
+              <div class="proc-status" id="proc2status">Waiting</div>
+            </div>
+            <div class="proc-step pending" id="proc3">
+              <div class="proc-spinner"></div>
+              <div class="proc-info">
+                <span class="proc-label">LLM Processing</span>
+                <span class="proc-desc">Generating intelligent summary…</span>
+              </div>
+              <div class="proc-status" id="proc3status">Waiting</div>
+            </div>
+            <div class="proc-step pending" id="proc4">
+              <div class="proc-spinner"></div>
+              <div class="proc-info">
+                <span class="proc-label">Summary Generation</span>
+                <span class="proc-desc">Finalizing output and formatting…</span>
+              </div>
+              <div class="proc-status" id="proc4status">Waiting</div>
+            </div>
+          </div>
+          <div class="proc-progress-bar">
+            <div class="proc-progress-fill" id="procFill"></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /app-upload -->
+
+
+    <!-- ── Summary Result ── -->
+    <div id="app-summaries" class="app-section">
+      <div class="app-section-header">
+        <div>
+          <h1>My Summaries</h1>
+          <p>AI-generated summaries from your uploaded notes.</p>
+        </div>
+        <div class="header-filters">
+          <select class="form-input sm">
+            <option>All Topics</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>Mathematics</option>
+            <option>History</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="summary-result-layout">
+        <!-- Left: Original -->
+        <div class="card summary-panel">
+          <div class="card-header">
+            <h3>📄 Original Notes</h3>
+            <span class="card-badge">Physics Ch.7</span>
+          </div>
+          <div class="original-notes-preview">
+            <p>Chapter 7: Rotational Motion</p>
+            <p>Torque = r × F (cross product)</p>
+            <p>Angular momentum L = r × p = Iω</p>
+            <p>Newton's 2nd law for rotation: τ = Iα</p>
+            <p>Moment of inertia for solid sphere = 2/5 MR²</p>
+            <p>For hollow sphere = 2/3 MR²</p>
+            <p>Parallel axis theorem: I = I_cm + Md²</p>
+            <p>Conservation of angular momentum when no external torque</p>
+            <p>Rolling without slipping: v = Rω</p>
+            <p>KE of rolling body = 1/2 Mv² + 1/2 Iω²</p>
+          </div>
+        </div>
+
+        <!-- Right: Summary -->
+        <div class="card summary-panel">
+          <div class="card-header">
+            <h3>✨ AI Summary</h3>
+            <div class="summary-actions-mini">
+              <button class="icon-btn" onclick="showToast('Summary copied! 📋')" title="Copy">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"/></svg>
+              </button>
+              <button class="icon-btn" onclick="showToast('Downloading PDF… 📥')" title="Download PDF">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/><polyline points="7 10 12 15 17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+              <button class="icon-btn" onclick="showToast('Sharing link copied! 🔗')" title="Share">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="3" stroke="currentColor" stroke-width="2"/><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="19" r="3" stroke="currentColor" stroke-width="2"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49" stroke="currentColor" stroke-width="2"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49" stroke="currentColor" stroke-width="2"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="summary-meta-row">
+            <div class="summary-meta-chip"><span class="chip-label">Topic</span> Rotational Motion</div>
+            <div class="summary-meta-chip"><span class="chip-label">Level</span> Intermediate</div>
+            <div class="summary-meta-chip"><span class="chip-label">Read</span> ~3 min</div>
+            <div class="summary-meta-chip"><span class="chip-label">Subject</span> Physics</div>
+          </div>
+
+          <div class="summary-content">
+            <p><strong>Rotational Motion</strong> describes the motion of objects around a fixed axis. The key quantities analogous to linear motion are torque (τ), angular momentum (L), and moment of inertia (I).</p>
+            <h4>Key Points</h4>
+            <ul>
+              <li>Torque τ = r × F acts as the rotational equivalent of force</li>
+              <li>Newton's 2nd law: τ = Iα (torque = moment of inertia × angular acceleration)</li>
+              <li>Angular momentum L = Iω is conserved when no external torque acts</li>
+              <li>Use the parallel axis theorem (I = I_cm + Md²) to shift the rotation axis</li>
+              <li>Rolling bodies have both translational and rotational kinetic energy</li>
+            </ul>
+            <h4>Important Formulas</h4>
+            <div class="formula-list">
+              <div class="formula-chip">I_sphere = 2/5 MR²</div>
+              <div class="formula-chip">v = Rω (rolling)</div>
+              <div class="formula-chip">KE = ½Mv² + ½Iω²</div>
+            </div>
+          </div>
+
+          <div class="keywords-section">
+            <h4>Key Terms</h4>
+            <div class="keyword-tags">
+              <span class="keyword-tag">Torque</span>
+              <span class="keyword-tag">Angular Momentum</span>
+              <span class="keyword-tag">Moment of Inertia</span>
+              <span class="keyword-tag">Rolling Motion</span>
+              <span class="keyword-tag">Parallel Axis</span>
+            </div>
+          </div>
+
+          <div class="summary-export-btns">
+            <button class="btn-primary" onclick="showToast('PDF downloaded! 📄')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2"/><polyline points="7 10 12 15 17 10" stroke="currentColor" stroke-width="2"/><line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2"/></svg>
+              Download PDF
+            </button>
+            <button class="btn-outline" onclick="showToast('Exported as DOCX! 📝')">Export DOCX</button>
+            <button class="btn-ghost-sm" onclick="showToast('Summary copied! 📋')">Copy Text</button>
+          </div>
+        </div>
+      </div>
+    </div><!-- /app-summaries -->
+
+
+    <!-- ── AI Chat ── -->
+    <div id="app-chat" class="app-section">
+      <div class="app-section-header">
+        <div>
+          <h1>AI Chat Assistant</h1>
+          <p>Ask anything about your uploaded notes.</p>
+        </div>
+      </div>
+      <div class="chat-layout">
+        <div class="chat-window">
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-message bot">
+              <div class="chat-avatar bot-avatar">🤖</div>
+              <div class="chat-bubble">
+                Hi Arjun! I've read your notes on <strong>Rotational Motion</strong>. You can ask me anything about them — formulas, concepts, or exam tips. What would you like to know?
+              </div>
+            </div>
+            <div class="suggested-questions">
+              <button class="suggest-q" onclick="sendMessage('Explain moment of inertia in simple terms')">Explain moment of inertia simply</button>
+              <button class="suggest-q" onclick="sendMessage('What is the formula for rolling motion KE?')">Rolling motion KE formula?</button>
+              <button class="suggest-q" onclick="sendMessage('Give me 3 MCQs on this chapter')">Generate 3 MCQs</button>
+              <button class="suggest-q" onclick="sendMessage('What is conservation of angular momentum?')">Conservation of angular momentum</button>
+            </div>
+          </div>
+          <div class="chat-input-bar">
+            <input type="text" id="chatInput" placeholder="Ask a question about your notes…" onkeypress="if(event.key==='Enter') sendMessage()" />
+            <button class="chat-send-btn" onclick="sendMessage()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="chat-sidebar-panel">
+          <h4>Active Note Context</h4>
+          <div class="context-card">
+            <div class="context-icon">📄</div>
+            <div>
+              <div class="context-title">Physics Ch.7 — Rotational Motion</div>
+              <div class="context-meta">Uploaded 1h ago · 10 key concepts</div>
+            </div>
+          </div>
+          <h4 style="margin-top:1.5rem;">Conversation Tips</h4>
+          <ul class="chat-tips">
+            <li>Ask for a summary of a specific section</li>
+            <li>Request flashcards or MCQs</li>
+            <li>Ask to explain a concept in simpler terms</li>
+            <li>Ask for real-life examples</li>
+          </ul>
+        </div>
+      </div>
+    </div><!-- /app-chat -->
+
+
+    <!-- ── History ── -->
+    <div id="app-history" class="app-section">
+      <div class="app-section-header">
+        <div><h1>History</h1><p>All your uploaded notes and generated summaries.</p></div>
+      </div>
+      <div class="card">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>Type</th>
+              <th>Subject</th>
+              <th>Status</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="file-name-cell">📄 Physics Ch.7 Notes</div></td>
+              <td><span class="type-badge pdf">PDF</span></td>
+              <td>Physics</td>
+              <td><span class="status-pill done">Summarized</span></td>
+              <td>Today, 11:23 AM</td>
+              <td><div class="action-btns"><button class="icon-btn" onclick="switchApp('summaries', null); showToast('Opening summary…')">👁</button><button class="icon-btn" onclick="showToast('Downloading PDF…')">⬇</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-name-cell">📷 Chemistry Handwritten</div></td>
+              <td><span class="type-badge img">Image</span></td>
+              <td>Chemistry</td>
+              <td><span class="status-pill done">Summarized</span></td>
+              <td>Today, 10:05 AM</td>
+              <td><div class="action-btns"><button class="icon-btn">👁</button><button class="icon-btn">⬇</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-name-cell">📝 CAT Quant Practice</div></td>
+              <td><span class="type-badge docx">DOCX</span></td>
+              <td>Math</td>
+              <td><span class="status-pill processing">Processing</span></td>
+              <td>Today, 12:01 PM</td>
+              <td><div class="action-btns"><button class="icon-btn">⏳</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-name-cell">📑 History NCERT Notes</div></td>
+              <td><span class="type-badge pdf">PDF</span></td>
+              <td>History</td>
+              <td><span class="status-pill done">Summarized</span></td>
+              <td>Yesterday, 6:45 PM</td>
+              <td><div class="action-btns"><button class="icon-btn">👁</button><button class="icon-btn">⬇</button></div></td>
+            </tr>
+            <tr>
+              <td><div class="file-name-cell">🖼 Biology Diagram Notes</div></td>
+              <td><span class="type-badge img">Image</span></td>
+              <td>Biology</td>
+              <td><span class="status-pill done">Summarized</span></td>
+              <td>2 days ago</td>
+              <td><div class="action-btns"><button class="icon-btn">👁</button><button class="icon-btn">⬇</button></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><!-- /app-history -->
+
+
+    <!-- ── Settings ── -->
+    <div id="app-settings" class="app-section">
+      <div class="app-section-header">
+        <div><h1>Settings</h1><p>Manage your profile and preferences.</p></div>
+      </div>
+
+      <div class="settings-grid">
+        <div class="card settings-card">
+          <h3>Profile</h3>
+          <div class="profile-avatar-row">
+            <div class="avatar lg" style="--av: #6366F1;">AK</div>
+            <button class="btn-outline sm">Change Photo</button>
+          </div>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" value="Arjun Kumar" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" value="arjun@example.com" class="form-input" />
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <select class="form-input">
+              <option>Student</option>
+              <option>Researcher</option>
+              <option>Professional</option>
+            </select>
+          </div>
+          <button class="btn-primary" onclick="showToast('Profile saved! ✅')">Save Changes</button>
+        </div>
+
+        <div class="card settings-card">
+          <h3>Preferences</h3>
+          <div class="settings-toggle-row">
+            <div>
+              <div class="toggle-label">Dark Mode</div>
+              <div class="toggle-desc">Use dark theme across the app</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="darkToggle" checked onchange="toggleTheme()" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="settings-toggle-row">
+            <div>
+              <div class="toggle-label">Email Notifications</div>
+              <div class="toggle-desc">Get notified when summaries are ready</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="settings-toggle-row">
+            <div>
+              <div class="toggle-label">Auto-save Summaries</div>
+              <div class="toggle-desc">Automatically save all AI summaries</div>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+          <div class="form-group" style="margin-top:1.5rem;">
+            <label>Summary Language</label>
+            <select class="form-input">
+              <option>English</option>
+              <option>Hindi</option>
+              <option>Tamil</option>
+              <option>Bengali</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card settings-card">
+          <h3>Plan & Usage</h3>
+          <div class="plan-badge-row">
+            <span class="plan-badge free">Free Plan</span>
+            <button class="btn-primary sm" onclick="showToast('Pro upgrade coming soon! ⚡')">Upgrade to Pro</button>
+          </div>
+          <div class="usage-bar-wrap">
+            <div class="usage-label-row"><span>Notes Uploaded</span><span>8 / 10</span></div>
+            <div class="usage-bar"><div class="usage-fill" style="width: 80%;"></div></div>
+          </div>
+          <div class="usage-bar-wrap">
+            <div class="usage-label-row"><span>AI Chat Messages</span><span>22 / 50</span></div>
+            <div class="usage-bar"><div class="usage-fill" style="width: 44%;"></div></div>
+          </div>
+          <p class="settings-note">Upgrade to Pro for unlimited uploads, AI chat, and DOCX exports.</p>
+        </div>
+      </div>
+    </div><!-- /app-settings -->
+
+  </main>
+</div><!-- /page-dashboard -->
+
+
+<!-- ═══════════════════════════════════════════
+     FLOATING AI BUTTON
+═══════════════════════════════════════════ -->
+<button class="fab" id="fab" onclick="fabAction()" aria-label="AI Assistant">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="currentColor" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  <span class="fab-tooltip">AI Assistant</span>
+</button>
+
+
+<!-- ═══════════════════════════════════════════
+     TOAST
+═══════════════════════════════════════════ -->
+<div class="toast-container" id="toastContainer"></div>
+
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════ -->
+<script>
+  // ─── Page Router ───────────────────────────
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('navbar').style.display = (id === 'dashboard') ? 'none' : 'block';
+    window.scrollTo(0, 0);
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // ─── App Section Router ──────────────────────
+  function switchApp(section, el) {
+    document.querySelectorAll('.app-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('app-' + section).classList.add('active');
+    document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+    if (el) el.classList.add('active');
+  }
+
+  // ─── Theme ───────────────────────────────────
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    const chk = document.getElementById('darkToggle');
+    if (chk) chk.checked = !isDark;
+  }
+
+  // ─── Hamburger ───────────────────────────────
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    const ham = document.getElementById('hamburger');
+    links.classList.toggle('open');
+    ham.classList.toggle('open');
+  }
+
+  // ─── Sidebar Toggle ──────────────────────────
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('collapsed');
+  }
+
+  // ─── Smooth Scroll ───────────────────────────
+  function smoothScroll(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  // ─── FAQ ─────────────────────────────────────
+  function toggleFaq(el) {
+    el.classList.toggle('open');
+  }
+
+  // ─── Auth Tabs ───────────────────────────────
+  function switchTab(tab) {
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.auth-form').forEach(f => f.classList.add('hidden'));
+    document.getElementById('tab' + (tab === 'login' ? 'Login' : 'Signup')).classList.add('active');
+    document.getElementById('form' + (tab === 'login' ? 'Login' : 'Signup')).classList.remove('hidden');
+  }
+
+  // ─── Toast ───────────────────────────────────
+  function showToast(msg) {
+    const c = document.getElementById('toastContainer');
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    c.appendChild(t);
+    setTimeout(() => t.classList.add('show'), 50);
+    setTimeout(() => { t.classList.remove('show'); setTimeout(() => t.remove(), 300); }, 3000);
+  }
+
+  // ─── File Upload ─────────────────────────────
+  function triggerFileUpload() { document.getElementById('fileInput').click(); }
+  function handleFileSelect(e) {
+    if (e.target.files.length > 0) {
+      simulateProcessing();
+    }
+  }
+  function handleDragOver(e) { e.preventDefault(); document.getElementById('dropzone').classList.add('drag-over'); }
+  function handleDragleave(e) { document.getElementById('dropzone').classList.remove('drag-over'); }
+  function handleDragLeave(e) { document.getElementById('dropzone').classList.remove('drag-over'); }
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('dropzone').classList.remove('drag-over');
+    if (e.dataTransfer.files.length > 0) simulateProcessing();
+  }
+
+  // ─── Processing Simulation ───────────────────
+  function simulateProcessing() {
+    const screen = document.getElementById('processingScreen');
+    screen.style.display = 'block';
+    screen.scrollIntoView({ behavior: 'smooth' });
+    const steps = [
+      { el: 'proc1', status: 'proc1status', label: 'Done ✓', delay: 1200 },
+      { el: 'proc2', status: 'proc2status', label: 'Done ✓', delay: 2500 },
+      { el: 'proc3', status: 'proc3status', label: 'Done ✓', delay: 3800 },
+      { el: 'proc4', status: 'proc4status', label: 'Done ✓', delay: 5000 },
+    ];
+    const fill = document.getElementById('procFill');
+    const pcts = [25, 50, 75, 100];
+    steps.forEach((s, i) => {
+      setTimeout(() => {
+        document.getElementById(s.el).classList.remove('pending');
+        document.getElementById(s.el).classList.add('done');
+        document.getElementById(s.status).textContent = s.label;
+        fill.style.width = pcts[i] + '%';
+        if (i === steps.length - 1) {
+          setTimeout(() => {
+            screen.style.display = 'none';
+            fill.style.width = '0%';
+            steps.forEach(ss => {
+              document.getElementById(ss.el).classList.remove('done');
+              document.getElementById(ss.el).classList.add('pending');
+              document.getElementById(ss.status).textContent = 'Waiting';
+            });
+            document.getElementById('proc1').classList.remove('pending');
+            document.getElementById('proc1status').textContent = 'Processing';
+            showToast('Summary ready! ✨');
+            switchApp('summaries', document.querySelectorAll('.sidebar-link')[2]);
+          }, 800);
+        }
+      }, s.delay);
+    });
+  }
+
+  // ─── AI Chat ─────────────────────────────────
+  const botReplies = {
+    'Explain moment of inertia in simple terms': 'Think of moment of inertia as "rotational mass". Just like more mass resists linear acceleration, higher moment of inertia resists angular acceleration. A hollow sphere (2/3 MR²) is harder to spin than a solid one (2/5 MR²) because more mass is far from the center.',
+    "What is the formula for rolling motion KE?": 'For rolling without slipping, the total kinetic energy is: KE = ½Mv² + ½Iω². The first term is translational KE and the second is rotational KE. Since v = Rω, you can simplify: KE = ½Mv²(1 + I/MR²).',
+    'Give me 3 MCQs on this chapter': '1. A solid sphere rolls without slipping. The ratio of its rotational to translational KE is: (a) 2/5 ✓ (b) 3/5 (c) 1/2 (d) 5/7\n\n2. If no external torque acts on a system, which is conserved? (a) Angular acceleration (b) Angular momentum ✓ (c) Torque (d) Angular velocity\n\n3. Parallel axis theorem states I = I_cm + ___ : (a) MR² (b) Md² ✓ (c) MRd (d) 2Md²',
+    'What is conservation of angular momentum?': 'When no external torque acts on a system, its total angular momentum remains constant: L = Iω = constant. Classic examples: a spinning ice skater pulls in arms → I decreases → ω increases to keep L constant. Same principle explains planetary motion!',
+  };
+
+  function sendMessage(text) {
+    const input = document.getElementById('chatInput');
+    const msg = text || input.value.trim();
+    if (!msg) return;
+    input.value = '';
+    const container = document.getElementById('chatMessages');
+    const userDiv = document.createElement('div');
+    userDiv.className = 'chat-message user';
+    userDiv.innerHTML = `<div class="chat-bubble user-bubble">${msg}</div>`;
+    container.appendChild(userDiv);
+    const typing = document.createElement('div');
+    typing.className = 'chat-message bot';
+    typing.innerHTML = '<div class="chat-avatar bot-avatar">🤖</div><div class="chat-bubble typing-indicator"><span></span><span></span><span></span></div>';
+    container.appendChild(typing);
+    container.scrollTop = container.scrollHeight;
+    setTimeout(() => {
+      typing.remove();
+      const reply = botReplies[msg] || 'That\'s a great question! Based on your uploaded Physics notes on Rotational Motion, I can explain that concept in detail. The key relationship here involves torque, angular momentum, and moment of inertia working together. Would you like me to elaborate with examples?';
+      const botDiv = document.createElement('div');
+      botDiv.className = 'chat-message bot';
+      botDiv.innerHTML = `<div class="chat-avatar bot-avatar">🤖</div><div class="chat-bubble">${reply.replace(/\n/g, '<br>')}</div>`;
+      container.appendChild(botDiv);
+      container.scrollTop = container.scrollHeight;
+    }, 1200);
+  }
+
+  // ─── FAB ─────────────────────────────────────
+  function fabAction() {
+    const isApp = document.getElementById('page-dashboard').classList.contains('active');
+    if (isApp) {
+      switchApp('chat', document.querySelectorAll('.sidebar-link')[3]);
+      showToast('Opening AI Chat… 🤖');
+    } else {
+      showPage('auth');
+    }
+  }
+
+  // ─── Navbar scroll effect ────────────────────
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ─── Animate stats on scroll ─────────────────
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in-view'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.stat-card, .feature-card, .step-card, .testimonial-card, .dash-card').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
